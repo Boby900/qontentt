@@ -1,4 +1,5 @@
 const express = require("express");
+const createHandler = require('graphql-http/lib/use/express')
 const { graphqlHTTP } = require("express-graphql");
 const mongoose = require("mongoose");
 const schema = require("./graphql/Schema");
@@ -6,6 +7,7 @@ const resolvers = require("./graphql/Resolvers");
 const PORT = 3000
 require('dotenv').config()
 const app = express();
+
 let db,
     dbConnectionStr = process.env.DB_STRING,
     dbName = 'bob'
